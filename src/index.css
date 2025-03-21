@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&#39');
 
 #root {
-   --cor-primaria: blue;
+   --cor-primaria: #005f83;
    --input-background:#D9D9D9;
    --branco-suave:#f4f4f4;
    --preto:#000;
