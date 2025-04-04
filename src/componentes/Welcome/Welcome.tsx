@@ -1,12 +1,23 @@
 import estilo from './Welcome.module.css';
+import { useEffect, useState } from 'react';
+import AlunoRequests from '../../fetch/AlunoRequests';
 
 function Welcome() {
-    return (
-        <main className={estilo.principal}>
-            <p>seja bem-vindo(a) á biblioteca.</p>
-            <p>para ter uma melhor experiencia, faça login no sistema</p>
-        </main>
-    );
-}
+    const [alunos, setAlunos] = useState('');
 
+    useEffect(() => {
+        const fetchAlunos = async () => {
+            try {
+                const listaDeAlunos = await AlunoRequests.listarAlunos();
+                setAlunos(listaDeAlunos);
+                console.table(alunos);
+            } catch (error) {
+                console.error(`erro ao chamar API : ${error}`)
+
+            }
+        };
+        fetchAlunos();
+    }, []);
+ 
+}
 export default Welcome;
